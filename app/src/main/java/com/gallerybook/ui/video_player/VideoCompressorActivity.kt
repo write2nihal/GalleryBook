@@ -195,7 +195,8 @@ class VideoCompressorActivity : BaseActivity() {
 
                                 time = System.currentTimeMillis() - time
                                 timeTaken.text = "Duration: ${DateUtils.formatElapsedTime(time / 1000)}"
-
+                                cancel.visibility = View.GONE
+                                GalleryUtils.showToast(this@VideoCompressorActivity,"Compressed Video saved in Gallery !!")
                                 Looper.myLooper()?.let {
                                     Handler(it).postDelayed({
                                         progress.visibility = View.GONE
@@ -206,7 +207,7 @@ class VideoCompressorActivity : BaseActivity() {
 
                             override fun onFailure(failureMessage: String) {
                                 progress.text = failureMessage
-                                cancel.visibility = View.VISIBLE
+                                cancel.visibility = View.GONE
                             }
 
                             override fun onCancelled() {

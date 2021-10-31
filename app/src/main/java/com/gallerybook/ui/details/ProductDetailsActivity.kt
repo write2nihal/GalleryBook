@@ -53,7 +53,7 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
         database = GalleryDatabase.initACDatabase(this)
         val extras = intent.extras
         if (!GalleryUtils.hasInternet(this)) {
-            disableUpdate()
+            dashBoardBinding.btnSaveImage.visibility = View.GONE
         }
         if (extras != null) {
             val value = extras.getString(Constants.MODEL_VALUE)

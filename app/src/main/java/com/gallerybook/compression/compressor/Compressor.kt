@@ -44,9 +44,7 @@ object Compressor {
     private var duration: Long = 0
     private var rotation: Int = 0
 
-    private const val INVALID_BITRATE =
-        "The provided bitrate is smaller than what is needed for compression " +
-                "try to set isMinBitRateEnabled to false"
+    private const val INVALID_BITRATE = "Cannot compress this file due to its very low Bitrate. Please select another"
 
     var isRunning = true
 
