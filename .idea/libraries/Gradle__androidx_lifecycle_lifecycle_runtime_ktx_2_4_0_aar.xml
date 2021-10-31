@@ -2,8 +2,8 @@
   <library name="Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.4.0@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/46aaba4fa91c607a54f1a670eeb62f09/transformed/jetified-lifecycle-runtime-ktx-2.4.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/46aaba4fa91c607a54f1a670eeb62f09/transformed/jetified-lifecycle-runtime-ktx-2.4.0/res" />
       <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/46aaba4fa91c607a54f1a670eeb62f09/transformed/jetified-lifecycle-runtime-ktx-2.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/46aaba4fa91c607a54f1a670eeb62f09/transformed/jetified-lifecycle-runtime-ktx-2.4.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

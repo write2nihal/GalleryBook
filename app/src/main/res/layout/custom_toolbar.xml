@@ -22,13 +22,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/crimson_bold"
-        tools:text="Sample"
         android:textColor="@color/white"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        tools:text="Sample" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_popup_menu"
@@ -39,6 +37,6 @@
         android:backgroundTint="@color/white"
         android:padding="10dp"
         android:onClick="manageApp"
-        android:src="@android:drawable/ic_menu_edit" />
+        android:src="@drawable/azc_three_dots" />
 
 </RelativeLayout>

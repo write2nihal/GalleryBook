@@ -4,9 +4,10 @@
       <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/9cd8d5775d50fbe331e2bc1086e416a8/transformed/drawerlayout-1.0.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/9cd8d5775d50fbe331e2bc1086e416a8/transformed/drawerlayout-1.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/9cd8d5775d50fbe331e2bc1086e416a8/transformed/drawerlayout-1.0.0/res" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/eb2c76ad1582700e8bdc0e3c5fe2bf40/transformed/drawerlayout-1.0.0/res" />
       <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/9cd8d5775d50fbe331e2bc1086e416a8/transformed/drawerlayout-1.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/9cd8d5775d50fbe331e2bc1086e416a8/transformed/drawerlayout-1.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

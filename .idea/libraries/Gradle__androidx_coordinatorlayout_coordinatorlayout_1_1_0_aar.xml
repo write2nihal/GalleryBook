@@ -4,8 +4,8 @@
       <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/69435701416e92f41bdc296a378f8f1f/transformed/coordinatorlayout-1.1.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/69435701416e92f41bdc296a378f8f1f/transformed/coordinatorlayout-1.1.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/69435701416e92f41bdc296a378f8f1f/transformed/coordinatorlayout-1.1.0/res" />
+      <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/69435701416e92f41bdc296a378f8f1f/transformed/coordinatorlayout-1.1.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/69435701416e92f41bdc296a378f8f1f/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />

@@ -4,9 +4,9 @@
       <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/dd7b38b31d38f10900271607a486cd4c/transformed/room-runtime-2.3.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
+      <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/dd7b38b31d38f10900271607a486cd4c/transformed/room-runtime-2.3.0/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/dd7b38b31d38f10900271607a486cd4c/transformed/room-runtime-2.3.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/dd7b38b31d38f10900271607a486cd4c/transformed/room-runtime-2.3.0/res" />
-      <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/dd7b38b31d38f10900271607a486cd4c/transformed/room-runtime-2.3.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

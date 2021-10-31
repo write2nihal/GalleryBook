@@ -3,7 +3,6 @@ package com.gallerybook.ui.dashboard
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagingData
@@ -17,8 +16,11 @@ import com.gallerybook.room.GalleryDatabase
 import com.gallerybook.room.GalleryScope
 import com.gallerybook.ui.adapter.GalleryAdapter
 import com.gallerybook.ui.details.ProductDetailsActivity
+import com.gallerybook.ui.splash.SplashActivity
+import com.gallerybook.ui.video_player.VideoCompressorActivity
 import com.gallerybook.utils.Constants
 import com.gallerybook.utils.GalleryUtils
+import com.gallerybook.utils.PopUpManager
 import com.gallerybook.viewmodel.GalleryViewModel
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,7 +45,7 @@ class DashBoardActivity : BaseActivity(), OnImageClickListener, NetworkStateRece
         binding = ActivityDashBoardBinding.inflate(layoutInflater)
         setContentView(binding.root)
         iv_toolbar_menu.visibility = View.GONE
-        iv_popup_menu.visibility = View.GONE
+        iv_popup_menu.visibility = View.VISIBLE
         tv_title_toolbar.text = getString(R.string.app_name)
         database = GalleryDatabase.initACDatabase(this)
         setupRecyclerView()
@@ -106,7 +108,7 @@ class DashBoardActivity : BaseActivity(), OnImageClickListener, NetworkStateRece
             delay(1000)
             handleNetworkSwitch()
         }
-        GalleryUtils.showSnackBar(binding.dashboard, "You became online !!")
+        GalleryUtils.showSnackBar(binding.dashboard, "You are online !!")
     }
 
     override fun networkUnavailable() {
@@ -115,5 +117,38 @@ class DashBoardActivity : BaseActivity(), OnImageClickListener, NetworkStateRece
             handleNetworkSwitch()
         }
         GalleryUtils.showSnackBar(binding.dashboard, "You went offline !!")
+    }
+
+    fun manageApp(view: View) {
+        val list = listOf("Compress Video", "LogOut")
+        val mPopUpWindow = PopUpManager.showPopUp(
+            context = this,
+            items = list,
+            anchor = iv_popup_menu,
+            cellLayoutRes = R.layout.popup_window,
+            backgroundDrawableRes = R.drawable.tool_tip
+        )
+
+        mPopUpWindow.setOnItemClickListener { _, _, index, _ ->
+            when (index) {
+                0 -> {
+                    val intent = Intent(this, VideoCompressorActivity::class.java)
+                    startActivity(intent)
+                }
+                1 -> {
+                    val job = CoroutineScope(Dispatchers.IO).async {
+                        database.galleryDao().deleteAllData()
+                    }
+                    job.onAwait
+                    val intent = Intent(this, SplashActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    startActivity(intent)
+                    this@DashBoardActivity.finish()
+                }
+            }
+            mPopUpWindow.dismiss()
+        }
+        mPopUpWindow.show()
+
     }
 }

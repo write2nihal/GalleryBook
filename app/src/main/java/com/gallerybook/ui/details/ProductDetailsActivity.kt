@@ -18,6 +18,7 @@ import com.gallerybook.R
 import com.gallerybook.databinding.ActivityDetailsBinding
 import com.gallerybook.room.GalleryDatabase
 import com.gallerybook.room.GalleryScope
+import com.gallerybook.ui.splash.SplashActivity
 import com.gallerybook.utils.Constants
 import com.gallerybook.utils.GalleryUtils
 import com.gallerybook.utils.PopUpManager
@@ -26,6 +27,7 @@ import kotlinx.android.synthetic.main.custom_toolbar.*
 import kotlinx.android.synthetic.main.custom_toolbar.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
@@ -41,17 +43,16 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
     private lateinit var data: GalleryScope
     private lateinit var dashBoardBinding: ActivityDetailsBinding
     private lateinit var database: GalleryDatabase
-    private val list = listOf("Compress Video", "LogOut")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dashBoardBinding = DataBindingUtil.setContentView(this, R.layout.activity_details)
         iv_toolbar_menu.visibility = View.VISIBLE
-        iv_popup_menu.visibility = View.VISIBLE
+        iv_popup_menu.visibility = View.GONE
         iv_toolbar_menu.setImageResource(R.drawable.backarrow)
         database = GalleryDatabase.initACDatabase(this)
         val extras = intent.extras
-        if(!GalleryUtils.hasInternet(this)){
+        if (!GalleryUtils.hasInternet(this)) {
             disableUpdate()
         }
         if (extras != null) {
@@ -59,10 +60,10 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
             val gson = GsonBuilder().create()
             data = gson.fromJson(value, GalleryScope::class.java)
             var imageLink = ""
-            if(data.image.startsWith("http")){
+            if (data.image.startsWith("http")) {
                 imageLink = data.image
                 tv_title_toolbar.text = data.name
-            }else if(data.image_path.startsWith("/storage/")){
+            } else if (data.image_path.startsWith("/storage/")) {
                 val file = File(data.image_path)
                 val imageUri: Uri = Uri.fromFile(file)
                 imageLink = imageUri.toString()
@@ -70,19 +71,6 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
             }
             Glide.with(dashBoardBinding.ivImage).load(imageLink).into(dashBoardBinding.ivImage)
 
-
-
-            /*if (GalleryUtils.hasInternet(this)) {
-                dashBoardBinding.btnSaveImage.visibility = View.VISIBLE
-                Glide.with(this).load(data.image).into(dashBoardBinding.ivImage)
-                tv_title_toolbar.text = data.name
-            } else {
-                dashBoardBinding.btnSaveImage.visibility = View.GONE
-                val file = File(data.image_path)
-                val imageUri: Uri = Uri.fromFile(file)
-                Glide.with(dashBoardBinding.ivImage).load(imageUri).into(dashBoardBinding.ivImage)
-                tv_title_toolbar.text = data.description
-            }*/
             iv_toolbar_menu.setOnClickListener {
                 onBackPressed()
             }
@@ -110,7 +98,10 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
                         ) {
                             saveImage(resource)
                             GalleryUtils.hideLoader()
-                            GalleryUtils.showToast(this@ProductDetailsActivity, "Image saved successfully !!")
+                            GalleryUtils.showToast(
+                                this@ProductDetailsActivity,
+                                "Image saved successfully !!"
+                            )
                         }
                     })
             }
@@ -122,8 +113,7 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
         var savedImagePath: String? = null
         val imageFileName = "JPEG_" + System.currentTimeMillis() + ".jpg"
         val storageDir = File(
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                .toString() + "/GalleryBook"
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/GalleryBook" +"/Images"
         )
         var success = true
         if (!storageDir.exists()) {
@@ -172,41 +162,21 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
             sendBroadcast(mediaScanIntent)
         }
     }
+
     private fun disableUpdate() {
         dashBoardBinding.btnSaveImage.isEnabled = false
-        val sdk:Int = android.os.Build.VERSION.SDK_INT;
-        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-            dashBoardBinding.btnSaveImage.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.btn_rounded_red_deactivated));
+        val sdk: Int = android.os.Build.VERSION.SDK_INT
+        if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            dashBoardBinding.btnSaveImage.setBackgroundDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.btn_rounded_red_deactivated
+                )
+            )
         } else {
-            dashBoardBinding.btnSaveImage.background = ContextCompat.getDrawable(this, R.drawable.btn_rounded_red_deactivated);
+            dashBoardBinding.btnSaveImage.background =
+                ContextCompat.getDrawable(this, R.drawable.btn_rounded_red_deactivated)
         }
-    }
-
-    fun manageApp(view: View) {
-        val listPopupWindow = PopUpManager.showPopUp(
-            context = this,
-            items = list,
-            anchor = dashBoardBinding.toolbar.iv_popup_menu,
-            cellLayoutRes = R.layout.popup_window,
-            backgroundDrawableRes = R.drawable.tool_tip
-        )
-
-        listPopupWindow.setOnItemClickListener { _, _, index, _ ->
-
-            when(index){
-                0->{
-                    Toast.makeText(this,"You Clicked Video",Toast.LENGTH_SHORT).show()
-                }
-                1->{
-                    Toast.makeText(this,"You Clicked Logout",Toast.LENGTH_SHORT).show()
-                }
-            }
-
-
-            listPopupWindow.dismiss()
-        }
-
-        listPopupWindow.show()
     }
 
 }

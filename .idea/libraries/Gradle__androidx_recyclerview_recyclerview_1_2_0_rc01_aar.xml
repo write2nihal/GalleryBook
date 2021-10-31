@@ -5,8 +5,8 @@
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/76ca2fde1acf460f8edeeeb0fd9fd966/transformed/recyclerview-1.2.0-rc01/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/76ca2fde1acf460f8edeeeb0fd9fd966/transformed/recyclerview-1.2.0-rc01/res" />
       <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/76ca2fde1acf460f8edeeeb0fd9fd966/transformed/recyclerview-1.2.0-rc01/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/76ca2fde1acf460f8edeeeb0fd9fd966/transformed/recyclerview-1.2.0-rc01/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

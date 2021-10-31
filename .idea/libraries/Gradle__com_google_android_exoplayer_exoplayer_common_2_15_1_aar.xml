@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.android.exoplayer:exoplayer-common:2.15.1@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/8d8de86ed3f647da76aee4a01e8b667c/transformed/jetified-exoplayer-common-2.15.1/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/8d8de86ed3f647da76aee4a01e8b667c/transformed/jetified-exoplayer-common-2.15.1/res" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/9181e528f38e784ac0948c4c80171cb4/transformed/jetified-exoplayer-common-2.15.1/res" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/8d8de86ed3f647da76aee4a01e8b667c/transformed/jetified-exoplayer-common-2.15.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/transforms-3/8d8de86ed3f647da76aee4a01e8b667c/transformed/jetified-exoplayer-common-2.15.1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Library/Android/sdk/build-tools/23.0.1/caches/modules-2/files-2.1/com.google.android.exoplayer/exoplayer-common/2.15.1/819d06ec3b04353f3bff55ef742ac579a9d7f0aa/exoplayer-common-2.15.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

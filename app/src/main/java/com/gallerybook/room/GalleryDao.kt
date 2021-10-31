@@ -1,4 +1,4 @@
-package com.galleryalbum.room
+package com.gallerybook.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
@@ -18,6 +18,9 @@ interface GalleryDao {
 
     @Delete
     suspend fun deleteOperation(galleryScope: GalleryScope)
+
+    @Query("DELETE FROM gallery_album")
+    fun deleteAllData()
 
     @Query("SELECT * FROM gallery_album")
     fun fetchStoredACDetails(): LiveData<List<GalleryScope>>
