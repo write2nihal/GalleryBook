@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cart_bg">
+
+        <RelativeLayout
+            android:id="@+id/rl_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv_image"
+                android:layout_width="210dp"
+                android:layout_height="200dp"
+                android:background="@drawable/loading_icon"
+                android:scaleType="fitXY"
+                app:riv_corner_radius="10dip"
+                app:riv_mutate_background="true"
+                app:riv_tile_mode="clamp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

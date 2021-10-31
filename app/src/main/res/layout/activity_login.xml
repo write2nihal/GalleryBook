@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cow_graze" />
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBlackTrans"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/llSignin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:background="@color/colorAccentTrans"
+                android:orientation="horizontal"
+                app:layout_widthPercent="85%">
+
+                <com.gallerybook.utils.VerticalTextView
+                    android:id="@+id/tvSigninInvoker"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:text="@string/sign_in"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <include
+                    android:id="@+id/llSigninContent"
+                    layout="@layout/layout_signin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSignup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:background="@color/colorAccentTrans"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_widthPercent="15%">
+
+                <com.gallerybook.utils.VerticalTextView
+                    android:id="@+id/tvSignupInvoker"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:rotation="180"
+                    android:text="@string/signup"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+
+                <include
+                    android:id="@+id/llSignupContent"
+                    layout="@layout/layout_signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center" />
+            </LinearLayout>
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+    </RelativeLayout>
+</layout>
