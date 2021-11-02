@@ -7,7 +7,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
@@ -18,16 +17,13 @@ import com.gallerybook.R
 import com.gallerybook.databinding.ActivityDetailsBinding
 import com.gallerybook.room.GalleryDatabase
 import com.gallerybook.room.GalleryScope
-import com.gallerybook.ui.splash.SplashActivity
 import com.gallerybook.utils.Constants
 import com.gallerybook.utils.GalleryUtils
-import com.gallerybook.utils.PopUpManager
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.custom_toolbar.*
 import kotlinx.android.synthetic.main.custom_toolbar.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
@@ -113,7 +109,8 @@ class ProductDetailsActivity : BaseActivity(), View.OnClickListener {
         var savedImagePath: String? = null
         val imageFileName = "JPEG_" + System.currentTimeMillis() + ".jpg"
         val storageDir = File(
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/GalleryBook" +"/Images"
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+                .toString() + "/GalleryBook" + "/Images"
         )
         var success = true
         if (!storageDir.exists()) {
